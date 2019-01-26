@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class Checkpoint : MonoBehaviour {
 
-    [SerializeField]
-    UnityEvent resetEvent;
-    
+    List<IResettable> objectsToReset = new List<IResettable>();
     // Use this for initialization
 	void Start () {
 		
@@ -16,4 +14,12 @@ public class Checkpoint : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnReset()
+    {
+        foreach (IResettable obj in objectsToReset)
+        {
+            obj.Reset();
+        }
+    }
 }

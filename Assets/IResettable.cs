@@ -6,5 +6,5 @@ using UnityEngine;
 
   public  interface IResettable
     {
-        void Reset();
+      void Reset();
     }
